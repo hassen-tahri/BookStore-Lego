@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1315.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookStoreLeago.gui.controllers.AccueilController">
+    <stylesheets>
+        <URL value="@/BookStoreLeago/gui/styles/accueilinterfaceStyle.css" />
+    </stylesheets>
+   <children>
+      <BorderPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="435.0" styleClass="right-bar" stylesheets="@../styles/accueilinterfaceStyle.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="49.0" prefWidth="104.0" text="Book" textFill="#878787">
+                           <font>
+                              <Font name="Cambria Bold" size="40.0" />
+                           </font>
+                        </Label>
+                        <Label text="Store" textFill="#878787">
+                           <font>
+                              <Font name="Cambria" size="40.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" stylesheets="@../styles/accueilinterfaceStyle.css">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                     <children>
+                        <TextField prefHeight="40.0" prefWidth="245.0" promptText="Taper pour rechercher" styleClass="transparent" stylesheets="@../styles/accueilinterfaceStyle.css">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@../styles/accueilinterfaceStyle.css" text="Rechercher" textFill="WHITE" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="search-box" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </HBox>
+                  <VBox prefHeight="535.0" prefWidth="100.0">
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </VBox.margin>
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                        <VBox fx:id="chosenLivreCard" alignment="CENTER" prefHeight="535.0" prefWidth="100.0" stylesheets="@../styles/accueilinterfaceStyle.css">
+                           <children>
+                              <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="335.0">
+                                 <VBox.margin>
+                                    <Insets left="20.0" top="30.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Label fx:id="titreLivre" alignment="CENTER" prefHeight="44.0" prefWidth="132.0" text="Titre" textFill="WHITE">
+                                       <font>
+                                          <Font name="Cambria" size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <ImageView fx:id="livreImg" fitHeight="199.0" fitWidth="211.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/livre.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Separator prefHeight="0.0" prefWidth="118.0" />
+                                          <Separator prefHeight="0.0" prefWidth="118.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="146.0" prefWidth="335.0">
+                                 <children>
+                                    <Label fx:id="auteur" alignment="CENTER" prefHeight="44.0" prefWidth="132.0" text="auteur" textFill="WHITE">
+                                       <font>
+                                          <Font name="Cambria" size="36.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets bottom="60.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="prix" alignment="CENTER" prefHeight="44.0" prefWidth="132.0" text="prix" textFill="WHITE">
+                                       <font>
+                                          <Font name="Cambria" size="36.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets top="30.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <styleClass>
+                              <String fx:value="chosen-fruit-card" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
