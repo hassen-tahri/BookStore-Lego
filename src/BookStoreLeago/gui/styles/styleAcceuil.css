@@ -12,6 +12,26 @@
     -fx-background-radius: 30;
 }
 
+.connect-button{
+    -fx-background-color: #9fdf97;
+    -fx-background-radius: 30;
+}
+
+.deconnect-button{
+    -fx-background-color: #9fdf97;
+    -fx-background-radius: 30;
+}
+
+.inscri-button{
+    -fx-background-color: #dfde96;
+    -fx-background-radius: 30;
+}
+
+.menu-button{
+    -fx-background-color: #4986b8;
+    -fx-background-radius: 30;
+}
+
 .right-bar{
     -fx-background-color: #D3D3D3;
 }
@@ -21,7 +41,7 @@
 }
 
 .chosen-fruit-card{
-    -fx-background-color: #c4aa38;
+    -fx-background-color: #F16C31;
     -fx-background-radius: 30;
 }
 

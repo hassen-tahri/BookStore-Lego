@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookStoreLeago.gui.controllers.MenuClientController">
+   <children>
+      <BorderPane fx:id="bp" layoutX="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="761.0" prefWidth="435.0" styleClass="right-bar" stylesheets="@../styles/styleAcceuil.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="acceuilButon" layoutX="3.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#acceuilClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="Accueil">
+                           <font>
+                              <Font name="Cambria Bold Italic" size="35.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="livreButon" layoutX="4.0" layoutY="111.0" mnemonicParsing="false" onMouseClicked="#meslivresClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="Mes livres">
+                           <font>
+                              <Font name="Cambria Bold Italic" size="35.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="profilButon" layoutX="4.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#profilClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="Mon profil">
+                           <font>
+                              <Font name="Cambria Bold Italic" size="35.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="panierButon" layoutX="3.0" layoutY="186.0" mnemonicParsing="false" onMouseClicked="#panierClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="Mon panier">
+                           <font>
+                              <Font name="Cambria Bold Italic" size="35.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="reclamaButon" layoutX="3.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#reclamClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="Reclamations">
+                           <font>
+                              <Font name="Cambria Bold Italic" size="35.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="64.0" fitWidth="72.0" layoutX="34.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/acceuil-icon.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="67.0" fitWidth="72.0" layoutX="33.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/livre-icon.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="67.0" fitWidth="72.0" layoutX="33.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/panier-icon.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="67.0" fitWidth="72.0" layoutX="33.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/pofil-icon.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="59.0" fitWidth="61.0" layoutX="38.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/reclam-icon.png" />
+                           </image>
+                        </ImageView>
+                     </children></Pane>
+               </children>
+            </VBox>
+         </left>
+         <top>
+            <HBox alignment="CENTER" prefHeight="85.0" prefWidth="854.0" styleClass="right-bar" stylesheets="@../styles/styleAcceuil.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="85.0" prefWidth="849.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="deconectButon" layoutX="1168.0" layoutY="23.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="133.0" styleClass="deconnect-button" stylesheets="@../styles/styleAcceuil.css" text="Se deconnecter" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                        <HBox alignment="CENTER" layoutX="472.0" layoutY="10.0" prefHeight="65.0" prefWidth="497.0" stylesheets="@../styles/styleAcceuil.css">
+                           <children>
+                              <TextField prefHeight="40.0" prefWidth="235.0" promptText="Rechercher un livre" styleClass="transparent" stylesheets="@../styles/styleAcceuil.css">
+                                 <font>
+                                    <Font name="Cambria" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@../styles/styleAcceuil.css" text="Rechercher" textFill="WHITE" />
+                           </children>
+                           <styleClass>
+                              <String fx:value="search-box" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </HBox>
+                        <Label fx:id="pseudo" layoutX="1041.0" layoutY="12.0" prefHeight="62.0" prefWidth="100.0" text="My Account" textFill="#878787">
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="309.0" layoutY="24.0" text="Store" textFill="#878787">
+                           <font>
+                              <Font name="Cambria" size="40.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="208.0" layoutY="24.0" prefHeight="49.0" prefWidth="101.0" text="Book" textFill="#878787">
+                           <font>
+                              <Font name="Cambria Bold" size="40.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="72.0" fitWidth="177.0" layoutX="25.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/lego.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
