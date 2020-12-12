@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" focusTraversable="true" prefHeight="606.0" prefWidth="771.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.testprojet.gui.FormulaireAjoutController">
+   <children>
+      <Label layoutX="27.0" layoutY="43.0" prefHeight="17.0" prefWidth="83.0" text="Titre" />
+      <Label layoutX="29.0" layoutY="213.0" prefHeight="17.0" prefWidth="95.0" text="Description" />
+      <Label layoutX="26.0" layoutY="112.0" text="Auteur" />
+      <Label layoutX="24.0" layoutY="516.0" text="Langue" />
+      <Label layoutX="15.0" layoutY="303.0" text="Prix" />
+      <TextField fx:id="tfNom" layoutX="131.0" layoutY="39.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="152.0" promptText="Nom livre" />
+      <TextField fx:id="tfAuteur" layoutX="110.0" layoutY="108.0" promptText="Nom d'auteur" />
+      <TextField fx:id="tfLangue" layoutX="131.0" layoutY="512.0" promptText="Langue livre" />
+      <TextField fx:id="tfPrix" layoutX="98.0" layoutY="290.0" promptText="Prix livre" />
+      <Label layoutX="15.0" layoutY="354.0" prefHeight="18.0" prefWidth="63.0" text="Type" />
+      <Label layoutX="378.0" layoutY="90.0" text="Image" />
+      <Button fx:id="btAjout" layoutX="649.0" layoutY="547.0" mnemonicParsing="false" onAction="#saveLivre" text="Ajouter" />
+      <MenuButton fx:id="listType" layoutX="118.0" layoutY="349.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="95.0" text="Type">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <Label layoutX="375.0" layoutY="164.0" prefHeight="44.0" prefWidth="44.0" text="chemin" />
+      <Button fx:id="btImage" layoutX="639.0" layoutY="92.0" mnemonicParsing="false" onAction="#choisirImage" text="upload" />
+      <Button layoutX="657.0" layoutY="183.0" mnemonicParsing="false" onAction="#choisirFile" text="Upload" />
+      <Label layoutX="331.0" layoutY="34.0" prefHeight="18.0" prefWidth="83.0" text="Catégorie" />
+      <TextField fx:id="tfCatégorie" layoutX="445.0" layoutY="26.0" promptText="categorie" />
+      <TextArea fx:id="tfDescription" layoutX="118.0" layoutY="186.0" prefHeight="73.0" prefWidth="200.0" />
+      <TextField fx:id="tfChemin" layoutX="458.0" layoutY="173.0" promptText="chemin" />
+      <TextField fx:id="tfImageLivre" layoutX="445.0" layoutY="86.0" promptText="Image Livre" />
+      <Label layoutX="372.0" layoutY="281.0" prefHeight="18.0" prefWidth="95.0" text="Taille" />
+      <TextField fx:id="tfTaille" layoutX="467.0" layoutY="277.0" promptText="taille livre" />
+      <Label fx:id="NbPageLablel" layoutX="19.0" layoutY="415.0" prefHeight="32.0" prefWidth="95.0" text="Nb Pages" />
+      <TextField fx:id="tfNbrPage" layoutX="131.0" layoutY="408.0" prefHeight="32.0" prefWidth="152.0" promptText="Nombre de pages" />
+      <Label layoutX="383.0" layoutY="369.0" prefHeight="18.0" prefWidth="83.0" text="Id Client" />
+      <TextField fx:id="tfIdClient" layoutX="477.0" layoutY="366.0" promptText="Id Client" />
+      <TextField fx:id="tfDuree" layoutX="131.0" layoutY="462.0" prefHeight="32.0" prefWidth="152.0" promptText="Durées " />
+      <Label fx:id="dureeLabel" layoutX="21.0" layoutY="462.0" prefHeight="32.0" prefWidth="95.0" text="Durées" />
+   </children>
+</AnchorPane>
