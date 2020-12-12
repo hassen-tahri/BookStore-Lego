@@ -15,6 +15,9 @@ public class Client {
     private String nom, prenom, pseudo, mdp, email, numTel;
     private boolean etatBan;
 
+    public Client(int i) {
+    idClient = i;    }
+
     public String getNom() {
         return nom;
     }

@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookStoreLeago.gui.controllers.PanierClientController">
    <padding>
       <Insets top="10.0" />
    </padding>
    <children>
-      <Text layoutX="394.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="test panier" />
+      <Accordion layoutX="292.0" layoutY="211.0" />
+      <TableView fx:id="panierTable" layoutX="63.0" layoutY="77.0" prefHeight="472.0" prefWidth="730.0">
+        <columns>
+          <TableColumn fx:id="bookImg" prefWidth="94.4000015258789" text="Book" />
+          <TableColumn fx:id="title" prefWidth="425.60003662109375" text="Title" />
+            <TableColumn fx:id="price" prefWidth="103.19989013671875" text="Price" />
+            <TableColumn fx:id="remove" prefWidth="106.39996337890625" text="Remove" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

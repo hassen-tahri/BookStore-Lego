@@ -16,6 +16,12 @@ public class Livre {
     protected float prix;
 //    private CLOB couverture;
 
+    public Livre(String nom, float prix) {
+        this.nom = nom;
+        this.prix = prix;
+    }
+    
+
     public Livre(int idLivre, String nom, String description, String auteur, String langue, String catégorie, float prix) {
         this.idLivre = idLivre;
         this.nom = nom;
