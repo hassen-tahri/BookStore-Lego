@@ -32,11 +32,11 @@ public class test {
 //   ps.ajouterLivreAuPanier(c, l1);
       //  System.out.println("ajout");
 
-//ps.supprimerLivreDuPanier(c, l);
+//ps.supprimerLivreDuPanier(2, l);
 
    
     
-    List<Livre> myList = ps.getPanier(c);
-        System.out.println(myList);
+//    List<Livre> myList = ps.getPanier(c);
+//        System.out.println(myList);
       }
 }

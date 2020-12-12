@@ -46,13 +46,13 @@ public class PanierService {
         }
     }
 
-    public boolean supprimerLivreDuPanier(Client c, Livre l) {
+    public boolean supprimerLivreDuPanier( int c, Livre l) {
         boolean etat = false;
         try {
             String requete = "DELETE FROM panier WHERE idClient=? and idLivre=?";
             PreparedStatement pst = cnx
                     .prepareStatement(requete);
-            pst.setInt(1, c.getIdClient());
+            pst.setInt(1, c);
             pst.setInt(2, l.getIdLivre());
             pst.executeUpdate();
             System.out.println("Panier supprimée");
@@ -87,7 +87,7 @@ public class PanierService {
     {
         List<Livre> myList = new ArrayList<Livre>();
         try {
-            String requete = "select titre, livre.prix from livre join panier on panier.idLivre=livre.idLivre where panier.idClient = "+c.getIdClient();
+            String requete = "select titre, livre.prix, livre.idLivre from livre join panier on panier.idLivre=livre.idLivre where panier.idClient = "+c.getIdClient();
            // String requetePrixT = "select sum(prix) from panier where idClient = "+c.getIdClient();
             
             
@@ -100,9 +100,10 @@ public class PanierService {
                 
                 String titre = (rs.getString(1));
                 Float prix = (rs.getFloat(2));
+                int idLivre = (rs.getInt(3));
             
                 System.out.println(titre+' '+prix);
-                Livre l = new Livre(titre, prix);
+                Livre l = new Livre(titre, prix, idLivre);
                 myList.add(l);
                
                 

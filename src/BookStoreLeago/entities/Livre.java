@@ -16,9 +16,10 @@ public class Livre {
     protected float prix;
 //    private CLOB couverture;
 
-    public Livre(String nom, float prix) {
+    public Livre(String nom, float prix, int idLivre) {
         this.nom = nom;
         this.prix = prix;
+        this.idLivre = idLivre;
     }
     
 
