@@ -7,20 +7,28 @@ package BookStoreLeago.gui.controllers;
 
 import BookStoreLeago.entities.Client;
 import BookStoreLeago.entities.Livre;
+import BookStoreLeago.services.MyConnection;
 import BookStoreLeago.services.PanierService;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -36,7 +44,7 @@ public class PanierClientController implements Initializable {
     @FXML
     private TableColumn<Livre, Float> price;
     @FXML
-    private TableColumn<Livre, Button> remove;
+    private TableColumn<Livre, Integer> id;
     @FXML
     private TableView<Livre> panierTable;
 
@@ -54,14 +62,15 @@ public class PanierClientController implements Initializable {
         title.setCellValueFactory(new PropertyValueFactory<Livre, String>("nom"));
         price.setCellValueFactory(new PropertyValueFactory<Livre, Float>("prix"));
         bookImg.setCellValueFactory(new PropertyValueFactory<Livre, String>("nom"));
-        remove.setCellValueFactory(new PropertyValueFactory<Livre, Button>("del"));
+        id.setCellValueFactory(new PropertyValueFactory<Livre, Integer>("idLivre"));
 
         panierTable.getItems().setAll(myList);
+        panierTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
     public ObservableList<Livre> getPanierContent() {
 
-        ObservableList<Livre> data = FXCollections.observableArrayList(new Livre("Test", 1));
+        ObservableList<Livre> data = FXCollections.observableArrayList();
 
         PanierService ps = new PanierService();
 
@@ -71,9 +80,26 @@ public class PanierClientController implements Initializable {
         for (int i=0;i<myList.size();i++)
         {
             data.add(myList.get(i));
+            System.out.println(myList.get(i).getIdLivre());
         }
 
     return data;
     }
 
+    @FXML
+    public void deleteFromPanier(){
+        PanierService ps = new PanierService();
+    ObservableList<Livre> selectedBooks, allBooks;
+    allBooks = panierTable.getItems();
+    
+   selectedBooks = panierTable.getSelectionModel().getSelectedItems();
+   
+   for (Livre l: selectedBooks)
+   {
+       allBooks.remove(l);
+       System.out.println(l.getIdLivre());
+       ps.supprimerLivreDuPanier(2, l);
+       
+   }
+}
 }
