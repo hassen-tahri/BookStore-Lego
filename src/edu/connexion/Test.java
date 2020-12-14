@@ -32,10 +32,13 @@ public class Test {
  //lv.ajouterLivre(lp);
  //lv.ajouterLivre(la);
  //lv.ajouterLivre(lp1);
-
+//System.out.println( lv.getAllLivreByClientId(8));
         //lv.supprimerLivre(lp1);
        // System.out.println(lv.listerLivre());
-//lv.updateLivre(l, 13);
+//lv.updateLivre(l, 13)
+//lv.supprimerLivre(l);
+lv.rechercheLivre("La ferme des animaux");
+
     }
 
 }

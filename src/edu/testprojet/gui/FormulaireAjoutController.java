@@ -37,6 +37,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Alert;
 
 /**
  * FXML Controller class
@@ -78,6 +80,43 @@ public class FormulaireAjoutController implements Initializable {
     @FXML
     private MenuButton listType;
 
+    /* Input validation Labels */
+    @FXML
+    private Label tfNomLabel;
+    
+    @FXML
+    private Label tfAutheurLabel;
+    
+    @FXML
+    private Label tfDescriptionLabel;
+    
+    @FXML
+    private Label tfPrixLabel;
+    
+    @FXML
+    private Label tfTailleLabel;
+    
+    @FXML
+    private Label tfCatégorieLabel;
+    
+    @FXML
+    private Label tfLangueLabel;
+    
+    @FXML
+    private Label tfNbPageLabel;    
+    
+    @FXML
+    private Label tfIdClientLabel;
+    
+    @FXML
+    private Label tfDureeLabel;
+    @FXML
+    private Label tfImageLivreLabel;
+    
+    @FXML
+    private Label tfCheminLabel; 
+    // ---                
+    
     private String path, path1;
     private FileChooser fc = new FileChooser();
 
@@ -90,26 +129,24 @@ public class FormulaireAjoutController implements Initializable {
         MenuItem item2 = new MenuItem("PDF");
         listType.getItems().clear();
         listType.getItems().addAll(item1, item2);
-        //typeText.setVisible(false);
+
         item1.setOnAction((e) -> {
             listType.setText("Audio");
-            if(tfDuree.isDisabled()) {
+            if (tfDuree.isDisabled()) {
                 System.out.println("Field is diabled");
                 tfDuree.setDisable(false);
                 tfNbrPage.setDisable(true);
-            }
-            else {
+            } else {
                 tfNbrPage.setDisable(true);
             }
         });
 
         item2.setOnAction((e) -> {
             listType.setText("PDF");
-            if(tfNbrPage.isDisabled()) {
+            if (tfNbrPage.isDisabled()) {
                 tfNbrPage.setDisable(false);
                 tfDuree.setDisable(true);
-            }
-            else {
+            } else {
                 tfDuree.setDisable(true);
             }
         });
@@ -118,9 +155,33 @@ public class FormulaireAjoutController implements Initializable {
     }
 
     @FXML
-
     private void saveLivre(ActionEvent event) {
-
+                // @Nasdyko
+        // You can call validation methods as much as you want
+        String validationText = "entrez des lettres de a à z";
+        boolean alphabetTitle = Helpers.textAlphabet(tfNom, tfNomLabel, validationText);
+        boolean alphabetAuthor = Helpers.textAlphabet(tfAuteur, tfAutheurLabel, validationText);
+        boolean alphabetDesc = Helpers.textAreaAlphabet(tfDescription, tfDescriptionLabel ,validationText);
+        boolean numericPrice = Helpers.textNumeric(tfPrix, tfPrixLabel, "must be a number and price>0");
+        boolean alphabetCategory = Helpers.textAlphabet(tfCatégorie, tfCatégorieLabel, validationText);
+        boolean alphabetLanguage = Helpers.textAlphabet(tfLangue, tfLangueLabel, validationText);
+        boolean alphabetImage = Helpers.textAlphabet(tfImageLivre, tfImageLivreLabel, validationText);
+        boolean alphabetPath = Helpers.textAlphabet(tfChemin, tfCheminLabel, validationText);
+        boolean numericSize = Helpers.textNumeric(tfTaille, tfTailleLabel, "must be a number and size>0");
+        
+        
+        
+        
+        if(alphabetTitle &&
+           alphabetAuthor &&
+           alphabetDesc &&
+           numericPrice &&
+           alphabetCategory &&
+           alphabetLanguage &&
+           alphabetImage &&
+           alphabetPath &&
+           numericSize
+           ) {
         try {
             System.out.println("=================Sauvegarde dans la base==================");
             String titre = tfNom.getText();
@@ -131,19 +192,26 @@ public class FormulaireAjoutController implements Initializable {
             String chemin = tfChemin.getText();
             String type = listType.getText();
             String duree = tfDuree.getText();
-            float prix = (float) tfPrix.getHeight();
-            float taille = (float) tfTaille.getHeight();
+            float prix = Float.parseFloat(tfPrix.getText());
+            float taille = Float.parseFloat(tfTaille.getText());
             String imageLivre = tfImageLivre.getText();
-            
+
             int nbrPage = Helpers.getInputAsInt(tfNbrPage);
-            
+
             int idClient = Integer.parseInt(tfIdClient.getText());
-            Livre l = new Livre( titre, auteur, langue, categorie, description, type, prix, chemin, taille, imageLivre, nbrPage, idClient);
-            if(!duree.isEmpty()) {
+            Livre l = new Livre(titre, auteur, langue, categorie, description, type, prix, chemin, taille, imageLivre, nbrPage, idClient);
+            if (!duree.isEmpty()) {
                 l.setDuree(duree);
             };
             LivreCRUD lv = new LivreCRUD();
             lv.ajouterLivre(l);
+            // Show Completion box
+            Alert successAlert = new Alert(AlertType.INFORMATION);
+            successAlert.setTitle("Confirmation");
+            successAlert.setHeaderText(null); // remove header
+            successAlert.setContentText("Book added! ");
+            successAlert.showAndWait();
+
             System.out.println("==================redirection=================");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LivreDetails.fxml"));
             Parent root = loader.load();
@@ -173,7 +241,7 @@ public class FormulaireAjoutController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FormulaireAjoutController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        }
     }
 
     @FXML
@@ -204,6 +272,12 @@ public class FormulaireAjoutController implements Initializable {
         } else {
             System.out.println("file is not valid");
         }
+    }
+ @FXML
+    private void onClickExit() {
+        // 0 ==> successfull exit (No problem) (Happy exit)
+        // any non zero value indicates an ERROR (1-255)
+        System.exit(0);
     }
 
 }

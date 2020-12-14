@@ -23,9 +23,8 @@ public class FirstWindow extends Application {
 
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("FormulaireAjout.fxml"));
+            root = FXMLLoader.load(getClass().getResource("CRUD1.fxml"));
             Scene scene = new Scene(root);
-
             primaryStage.setTitle("Ajouter votre livre!!");
             primaryStage.setScene(scene);
             primaryStage.show();

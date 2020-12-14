@@ -23,21 +23,18 @@ import java.util.List;
  */
 public class LivreCRUD {
 
-    Connection cnx;
-
-    public LivreCRUD() {
-        cnx = ConnexionDB.getInstance().getCnx();
-    }
 
     public void ajouterLivre(Livre l) {
+        Connection cnx = null;
+        PreparedStatement pst = null;
+        String requete
+                = "INSERT INTO livre ( titre ,auteur,langue,catégorie, description,type,prix, "
+                + "chemin, dateDepo, taille, imageLivre, duree,nbrPage, idClient)"
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
+            cnx = ConnexionDB.getInstance().getCnx();
+            pst = cnx.prepareStatement(requete);
 
-            String requete = " INSERT INTO livre ( titre ,auteur,langue,catégorie, description,type,prix, "
-                    + "chemin,dateDepo, taille, imageLivre, duree,nbrPage, idClient) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-           
-            PreparedStatement pst = cnx.prepareStatement(requete);
-            
-            //System.out.println(l.getIdClient());
             pst.setString(1, l.getTitre());
             pst.setString(2, l.getAuteur());
             pst.setString(3, l.getLangue());
@@ -56,33 +53,49 @@ public class LivreCRUD {
             pst.setInt(13, l.getNbrPage());
             pst.setInt(14, l.getIdClient());
             pst.executeUpdate();
-            
+
             System.out.println("Livre ajoutée ! ");
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException e) {
+                    System.err.println(e);
+                }
+            }
+            if (cnx != null) {
+                try {
+                    cnx.close();
+                } catch (SQLException e) {
+                    System.err.println(e);
+                }
+            }
         }
-
     }
- 
+
     public List<Livre> listerLivre() {
         List<Livre> myList = new ArrayList<Livre>();
+        Connection cnx = null;
+        Statement st = null;
+
         try {
             String requete = "SELECT * FROM livre";
-            Statement st = cnx
-                    .createStatement();
+            st = cnx.createStatement();
             ResultSet rs = st.executeQuery(requete);
             while (rs.next()) {
                 Livre l = new Livre();
-               
-l.setIdLivre(rs.getInt(1));
+
+                l.setIdLivre(rs.getInt(1));
                 l.setTitre(rs.getString(2));
                 l.setAuteur(rs.getString(3));
                 l.setLangue(rs.getString(4));
                 l.setCatégorie(rs.getString(5));
                 l.setDescription(rs.getString(6));
                 l.setType(rs.getString(7));
-               l.setPrix(rs.getFloat(8));
+                l.setPrix(rs.getFloat(8));
                 l.setChemin(rs.getString(9));
                 l.setDateDepo(rs.getDate(10));
                 l.setTaille(rs.getFloat(11));
@@ -91,7 +104,6 @@ l.setIdLivre(rs.getInt(1));
                 l.setNbrPage(rs.getInt(14));
                 l.setIdClient(rs.getInt(15));
 
-                
                 myList.add(l);
             }
         } catch (SQLException ex) {
@@ -100,41 +112,48 @@ l.setIdLivre(rs.getInt(1));
         return myList;
     }
 
-        public boolean supprimerLivre(Livre l) {
+    public boolean supprimerLivre(Livre l) {
+        Connection cnx = null;
+        PreparedStatement pst = null;
         boolean etat = false;
+        String requete = "DELETE FROM livre where idLivre=?";
+
         try {
-            String requete = "DELETE FROM Livre where idLivre=?";
-            PreparedStatement pst = cnx.prepareStatement(requete);
+            cnx = ConnexionDB.getInstance().getCnx();
+            pst = cnx.prepareStatement(requete);
             pst.setInt(1, l.getIdLivre());
             pst.executeUpdate();
-            System.out.println("Livre supprimée ! ");
+            System.out.println("Livre supprimé ! ");
             etat = true;
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException e) {
+                    ; // ignore it
+                }
+            }
+            if (cnx != null) {
+                try {
+                    cnx.close();
+                } catch (Exception e) {
+                    ; // ...
+                }
+            }
         }
         return etat;
     }
 
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public void updateLivre(Livre l, int idLivre) {
+        Connection cnx = null;
+        PreparedStatement pst = null;
+        String requete = "UPDATE livre SET description=? , prix=?   WHERE idLivre=?";
         try {
-            String requete = "UPDATE livre SET description=? , prix=?   WHERE idLivre=?";
-            PreparedStatement pst = cnx.prepareStatement(requete);
+            cnx = ConnexionDB.getInstance().getCnx();
+            pst = cnx.prepareStatement(requete);
             pst.setString(1, l.getDescription());
             pst.setDouble(2, l.getPrix());
             pst.setInt(3, idLivre);
@@ -142,7 +161,146 @@ l.setIdLivre(rs.getInt(1));
             System.out.println("Livre modifiée !");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    ; // ignore it
+                }
+            }
+            if (cnx != null) {
+                try {
+                    cnx.close();
+                } catch (Exception e) {
+                    ; // ...
+                }
+            }
         }
     }
 
+    public List<Livre> getAllLivreByClientId(int id) {
+        List<Livre> myList = new ArrayList<Livre>();
+        Connection cnx = null;
+        Statement st = null;
+        ResultSet rs = null;
+        String requete = "SELECT * FROM livre WHERE idClient='" + id + "'";
+
+        try {
+            cnx = ConnexionDB.getInstance().getCnx();
+            st = cnx.createStatement();
+            rs = st.executeQuery(requete);
+            while (rs.next()) {
+                Livre l = new Livre();
+
+                l.setIdLivre(rs.getInt(1));
+                l.setTitre(rs.getString(2));
+                l.setAuteur(rs.getString(3));
+                l.setLangue(rs.getString(4));
+                l.setCatégorie(rs.getString(5));
+                l.setDescription(rs.getString(6));
+                l.setType(rs.getString(7));
+                l.setPrix(rs.getFloat(8));
+                l.setChemin(rs.getString(9));
+                l.setDateDepo(rs.getDate(10));
+                l.setTaille(rs.getFloat(11));
+                l.setImageLivre(rs.getString(12));
+                l.setDuree(rs.getString(13));
+                l.setNbrPage(rs.getInt(14));
+                l.setIdClient(rs.getInt(15));
+
+                myList.add(l);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                    ;// ignore it
+                }
+            }
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (Exception e) {
+                    ; // ...
+                }
+            }
+            if (cnx != null) {
+                try {
+                    cnx.close();
+                } catch (Exception e) {
+                    ; // ...
+                }
+            }
+        }
+        return myList;
+    }
+
+    public void rechercheLivre(String titre) {
+        Connection cnx = null;
+        Statement st = null;
+        ResultSet rs = null;
+        String requete = " Select * FROM livre WHERE titre='" + titre + "'";
+        try {
+            cnx = ConnexionDB.getInstance().getCnx();
+            st = cnx.createStatement();
+
+            rs = st.executeQuery(requete);
+            rs.last(); // move cursor to the first row in the Result Set
+            int nbrRow = rs.getRow();
+            if (nbrRow >= 1) {
+                System.out.println("livre trouvé!");
+                // ,String chemin,float taille, String imageLivre, String duree , int idClient ) {
+
+                Livre livre = new Livre(
+                        rs.getString("titre"),
+                        rs.getString("auteur"),
+                        rs.getString("langue"),
+                        rs.getString("catégorie"),
+                        rs.getString("description"),
+                        rs.getString("type"),
+                        rs.getFloat("prix"),
+                        rs.getString("chemin"),
+                        rs.getFloat("taille"),
+                        rs.getString("imageLivre"),
+                        rs.getString("nbrPage"),
+                        rs.getInt("idClient")
+                );
+                livre.setDuree(rs.getString("duree"));
+                livre.setIdClient(rs.getInt("IdClient"));
+                livre.setDateDepo(rs.getDate("dateDepo"));
+                System.out.println(livre.toString());
+            } else {
+                System.out.println("livre non trouvé!");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    ;// ignore it
+                }
+            }
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    ; // ...
+                }
+            }
+            if (cnx != null) {
+                try {
+                    cnx.close();
+                } catch (SQLException e) {
+                    ; // ...
+                }
+            }
+        }
+
+    }
 }

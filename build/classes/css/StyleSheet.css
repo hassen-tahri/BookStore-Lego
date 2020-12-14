@@ -36,3 +36,14 @@
     
     
 }
+
+.bodybg{
+
+-fx-background-image: url("aaa.JPG");
+
+}
+.bodybg{
+
+-fx-background-image: url("bbb.JPG");
+
+}

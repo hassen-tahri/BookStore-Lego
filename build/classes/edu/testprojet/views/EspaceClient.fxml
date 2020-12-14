@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.testprojet.controlleur.EspaceClientController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="edu.testprojet.controlleur.EspaceClientController">
+   <children>
+      <ImageView fitHeight="111.0" fitWidth="91.0" layoutX="69.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Desktop/ESPRIT/bookstore/book/image/pi.JPG" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="111.0" fitWidth="110.0" layoutX="163.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Desktop/ESPRIT/bookstore/book/image/oxford.JPG" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="217.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="129.0" layoutX="264.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Desktop/ESPRIT/bookstore/book/image/fa.JPG" />
+         </image>
+      </ImageView>
+      <Button layoutX="475.0" layoutY="102.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="88.0" text="Delete" />
+      <Button layoutX="493.0" layoutY="188.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="71.0" text="Update" />
+   </children>
 </AnchorPane>

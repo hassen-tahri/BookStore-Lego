@@ -20,7 +20,11 @@ public class Livre {
     protected String imageLivre;
     protected Date dateDepo;
     
-
+    public  Livre(String titre,String description) {
+        this.titre = titre;
+        this.description = description;
+    }
+    
     public Livre(
             int idLivre,
             int idClient,
@@ -86,9 +90,6 @@ public class Livre {
     }
      public Livre(String titre ,String auteur, String langue, String catégorie, String description, String type, float prix, String chemin, float taille,String imageLivre, String  duree, int nbrPage, int idClient){
      
-     
-     
-     
      this.idClient = idClient;
         this.nbrPage = nbrPage;
         this.titre = titre;
@@ -101,13 +102,7 @@ public class Livre {
         this.type = type;
         this.prix = prix;
         this.taille = taille;
-        this.imageLivre = imageLivre;
-        
-     
-     
-     
-     
-     
+        this.imageLivre = imageLivre;     
      }
 
     public Livre() {
