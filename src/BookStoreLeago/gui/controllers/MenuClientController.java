@@ -29,10 +29,7 @@ import javafx.stage.Stage;
  *
  * @author Hassen TAHRI
  */
-public class MenuClientController extends Application{
-    
-            
-    
+public class MenuClientController extends Application {
 
     @FXML
     private Button acceuilButon;
@@ -48,14 +45,17 @@ public class MenuClientController extends Application{
     private Button deconectButon;
     @FXML
     private BorderPane bp;
+
+//    public BorderPane getBp() {
+//        return bp;
+//    }
     @FXML
     private Label pseudo;
 
-
     @FXML
     private void acceuilClic(MouseEvent event) {
-    
-       
+        loadPage("acceuilInterface");
+
     }
 
     @FXML
@@ -77,17 +77,20 @@ public class MenuClientController extends Application{
     private void reclamClic(MouseEvent event) {
         loadPage("reclamClient");
     }
-    
-    private void loadPage(String page)
-    {Parent root = null ;
+
+    private void loadPage(String page) {
+        Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("../interfaces/"+page+".fxml"));
+            root = FXMLLoader.load(getClass().getResource("../interfaces/" + page + ".fxml"));
+           // /BookStoreLeago/gui/interfaces/menuClient.fxml
         } catch (IOException ex) {
             Logger.getLogger(MenuClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
         bp.setCenter(root);
-        
+
     }
+ 
+    
     
     @Override
     public void start(Stage primaryStage) {
@@ -106,15 +109,8 @@ public class MenuClientController extends Application{
         }
     }
 
-   
+//    public static void main(String[] args) {
+//        launch(args);
+//    }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-  
-
-  
-
-    
 }

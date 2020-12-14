@@ -27,9 +27,7 @@ public class ItemController implements Initializable {
     @FXML
     private Label prixitem;
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
