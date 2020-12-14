@@ -13,14 +13,15 @@
    </padding>
    <children>
       <Accordion layoutX="292.0" layoutY="211.0" />
-      <TableView fx:id="panierTable" layoutX="63.0" layoutY="77.0" prefHeight="472.0" prefWidth="730.0">
+      <TableView fx:id="panierTable" layoutX="-1.0" prefHeight="551.0" prefWidth="843.0">
         <columns>
-          <TableColumn fx:id="bookImg" prefWidth="94.4000015258789" text="Book" />
-          <TableColumn fx:id="title" prefWidth="425.60003662109375" text="Title" />
-            <TableColumn fx:id="price" prefWidth="103.19989013671875" text="Price" />
-            <TableColumn fx:id="id" prefWidth="106.39996337890625" text="Date added" />
+          <TableColumn fx:id="title" prefWidth="561.60003054142" text="Book" />
+            <TableColumn fx:id="price" prefWidth="108.79998779296875" text="Price" />
+            <TableColumn fx:id="id" prefWidth="172.800048828125" text="Date added" />
         </columns>
       </TableView>
-      <Button layoutX="597.0" layoutY="36.0" mnemonicParsing="false" onAction="#deleteFromPanier" text="Button" />
+      <Button layoutX="292.0" layoutY="575.0" mnemonicParsing="false" onAction="#deleteFromPanier" text="Remove Selected" />
+      <Button layoutX="746.0" layoutY="575.0" mnemonicParsing="false" onAction="#telechargerPdf" text="Download" />
+      <Button layoutX="448.0" layoutY="575.0" mnemonicParsing="false" onAction="#deleteAll" text="Remove All" />
    </children>
 </AnchorPane>

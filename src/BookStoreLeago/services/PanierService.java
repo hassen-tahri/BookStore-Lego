@@ -42,21 +42,21 @@ public class PanierService {
         cnx = MyConnection.getInstance().getCnx();
     }
 
-    public void ajouterPanier(Client c) {
-        try {
-            String requete = "INSERT INTO panier ( idclient)"
-                    + "values (?)";
-
-            PreparedStatement pst = cnx.prepareStatement(requete);
-
-            pst.setInt(1, c.getIdClient());
-
-            pst.executeUpdate();
-            System.out.println("Panier ajouté!");
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
+//    public void ajouterPanier(Client c) {
+//        try {
+//            String requete = "INSERT INTO panier ( idclient)"
+//                    + "values (?)";
+//
+//            PreparedStatement pst = cnx.prepareStatement(requete);
+//
+//            pst.setInt(1, c.getIdClient());
+//
+//            pst.executeUpdate();
+//            System.out.println("Panier ajouté!");
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//    }
 
     public boolean supprimerLivreDuPanier(int c, Livre l) {
         boolean etat = false;
@@ -68,6 +68,23 @@ public class PanierService {
             pst.setInt(2, l.getIdLivre());
             pst.executeUpdate();
             System.out.println("Panier supprimée");
+            etat = true;
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            etat = false;
+        }
+        return etat;
+    }
+    
+       public boolean viderPanier(int c) {
+        boolean etat = false;
+        try {
+            String requete = "DELETE FROM panier WHERE idClient=?";
+            PreparedStatement pst = cnx
+                    .prepareStatement(requete);
+            pst.setInt(1, c);
+            pst.executeUpdate();
             etat = true;
 
         } catch (SQLException ex) {
@@ -146,7 +163,7 @@ public class PanierService {
             if (result >= 2)
                 ds.desktop.notify.DesktopNotify.showDesktopMessage(
                         "LEGO Bookstore",
-                        "You added books to your cart a while ago but you haven't bought them yet!",
+                        "You added books to your cart a while ago but you didn't download them yet!",
                         DesktopNotify.WARNING );
                         break;
                 }
