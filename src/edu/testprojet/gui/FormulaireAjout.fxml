@@ -7,75 +7,59 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" focusTraversable="true" prefHeight="625.0" prefWidth="843.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.testprojet.gui.FormulaireAjoutController">
+<AnchorPane id="AnchorPane" focusTraversable="true" prefHeight="625.0" prefWidth="853.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.testprojet.gui.FormulaireAjoutController">
    <children>
-      <Label layoutX="590.0" layoutY="472.0" prefHeight="18.0" prefWidth="40.0" text="Title" />
-      <Label layoutX="483.0" layoutY="226.0" prefHeight="18.0" prefWidth="73.0" text="Description" />
-      <Label layoutX="492.0" layoutY="124.0" text="Author" />
-      <Label layoutX="490.0" layoutY="528.0" text="Language" />
+      <Label layoutX="181.0" layoutY="206.0" prefHeight="18.0" prefWidth="40.0" text="Title" />
+      <Label layoutX="178.0" layoutY="383.0" prefHeight="18.0" prefWidth="73.0" text="Description" />
+      <Label layoutX="180.0" layoutY="293.0" prefHeight="18.0" prefWidth="57.0" text="Author" />
+      <Label layoutX="572.0" layoutY="115.0" text="Language" />
       <Label layoutX="481.0" layoutY="315.0" text="Price" />
-      <TextField fx:id="tfNom" layoutX="586.0" layoutY="481.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="179.0" promptText="Name book" />
-      <TextField fx:id="tfAuteur" layoutX="578.0" layoutY="374.0" prefHeight="26.0" prefWidth="179.0" promptText="Author name" />
-      <TextField fx:id="tfLangue" layoutX="597.0" layoutY="524.0" promptText="Language book" />
-      <TextField fx:id="tfPrix" layoutX="576.0" layoutY="302.0" promptText="Price book" />
+      <TextField fx:id="tfNom" layoutX="166.0" layoutY="227.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="179.0" promptText="Name book" />
+      <TextField fx:id="tfAuteur" layoutX="166.0" layoutY="315.0" prefHeight="26.0" prefWidth="179.0" promptText="Author name" />
+      <TextField fx:id="tfLangue" layoutX="559.0" layoutY="142.0" promptText="Language book" />
+      <TextField fx:id="tfPrix" layoutX="597.0" layoutY="533.0" promptText="Price book" />
       <Label layoutX="481.0" layoutY="366.0" prefHeight="18.0" prefWidth="63.0" text="File type" />
-      <Label layoutX="378.0" layoutY="90.0" text="Cover" />
+      <Label layoutX="517.0" layoutY="427.0" text="Cover" />
       <Button fx:id="btAjout" layoutX="715.0" layoutY="573.0" mnemonicParsing="false" onAction="#saveLivre" prefHeight="32.0" prefWidth="83.0" text="Add book" />
-      <MenuButton fx:id="listType" layoutX="584.0" layoutY="361.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="95.0" text="Type">
+      <MenuButton fx:id="listType" layoutX="587.0" layoutY="226.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="130.0" text="Type">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </MenuButton>
       <Label layoutX="821.0" layoutY="240.0" prefHeight="44.0" prefWidth="44.0" text="Path" />
-      <Button fx:id="btImage" layoutX="639.0" layoutY="92.0" mnemonicParsing="false" onAction="#choisirImage" text="upload" />
-      <Button layoutX="657.0" layoutY="183.0" mnemonicParsing="false" onAction="#choisirFile" text="Upload" />
-      <Label layoutX="334.0" layoutY="485.0" prefHeight="18.0" prefWidth="83.0" text="Category" />
-      <TextField fx:id="tfCatégorie" layoutX="445.0" layoutY="26.0" promptText="Category" />
-      <TextArea fx:id="tfDescription" layoutX="777.0" layoutY="400.0" prefHeight="73.0" prefWidth="216.0" promptText="                Description" />
-      <TextField fx:id="tfChemin" layoutX="777.0" layoutY="348.0" promptText="Load path" />
-      <TextField fx:id="tfImageLivre" layoutX="445.0" layoutY="86.0" promptText="Load picture" />
-      <TextField fx:id="tfTaille" layoutX="467.0" layoutY="277.0" promptText="book size" />
-      <Label fx:id="NbPageLablel" layoutX="485.0" layoutY="427.0" prefHeight="32.0" prefWidth="95.0" text="Pages Number" />
-      <TextField fx:id="tfNbrPage" layoutX="597.0" layoutY="420.0" prefHeight="32.0" prefWidth="152.0" promptText="Numbres pages" />
-      <Label layoutX="251.0" layoutY="146.0" prefHeight="18.0" prefWidth="83.0" text="Customer id" />
-      <TextField fx:id="tfIdClient" layoutX="369.0" layoutY="142.0" promptText="customer id" />
-      <TextField fx:id="tfDuree" layoutX="597.0" layoutY="474.0" prefHeight="32.0" prefWidth="152.0" promptText="Durations" />
+      <Button fx:id="btImage" layoutX="770.0" layoutY="411.0" mnemonicParsing="false" onAction="#choisirImage" text="upload" />
+      <Button layoutX="770.0" layoutY="530.0" mnemonicParsing="false" onAction="#choisirFile" text="Upload" />
+      <Label layoutX="193.0" layoutY="521.0" prefHeight="18.0" prefWidth="83.0" text="Category" />
+      <TextField fx:id="tfCatégorie" layoutX="167.0" layoutY="560.0" promptText="Category" />
+      <TextArea fx:id="tfDescription" layoutX="165.0" layoutY="404.0" prefHeight="82.0" prefWidth="171.0" promptText="                Description" />
+      <TextField fx:id="tfChemin" layoutX="576.0" layoutY="370.0" promptText="Load path" />
+      <TextField fx:id="tfImageLivre" layoutX="611.0" layoutY="414.0" promptText="Load picture" />
+      <TextField fx:id="tfTaille" layoutX="659.0" layoutY="249.0" promptText="book size" />
+      <Label fx:id="NbPageLablel" layoutX="420.0" layoutY="546.0" prefHeight="32.0" prefWidth="95.0" text="Pages Number" />
+      <TextField fx:id="tfNbrPage" layoutX="586.0" layoutY="411.0" prefHeight="32.0" prefWidth="152.0" promptText="Numbres pages" />
+      <Label layoutX="169.0" layoutY="123.0" prefHeight="18.0" prefWidth="83.0" text="Customer id" />
+      <TextField fx:id="tfIdClient" layoutX="169.0" layoutY="142.0" promptText="customer id" />
+      <TextField fx:id="tfDuree" layoutX="405.0" layoutY="499.0" prefHeight="32.0" prefWidth="152.0" promptText="Durations" />
       <Label fx:id="dureeLabel" layoutX="487.0" layoutY="474.0" prefHeight="32.0" prefWidth="95.0" text="Durations" />
       <Button layoutX="574.0" layoutY="579.0" mnemonicParsing="false" onAction="#onClickExit" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: #555;" text="Cancel" />
       <Text layoutX="727.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="£" />
       <Text layoutX="618.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ko" />
-      <Label fx:id="tfNomLabel" layoutX="607.0" layoutY="415.0" prefHeight="18.0" prefWidth="179.0" text="bn" />
+      <Label fx:id="tfNomLabel" layoutX="645.0" layoutY="515.0" prefHeight="18.0" prefWidth="179.0" text="bn" />
       <Label fx:id="tfDureeLabel" layoutX="597.0" layoutY="506.0" prefHeight="18.0" prefWidth="179.0" text="durr" />
       <Label fx:id="tfNbPageLabel" layoutX="597.0" layoutY="450.0" prefHeight="18.0" prefWidth="179.0" text="np" />
       <Label fx:id="tfPrixLabel" layoutX="572.0" layoutY="333.0" prefHeight="18.0" prefWidth="179.0" text="pb" />
-      <Label fx:id="tfDescriptionLabel" layoutX="570.0" layoutY="271.0" prefHeight="18.0" prefWidth="179.0" text="d" />
+      <Label fx:id="tfDescriptionLabel" layoutX="638.0" layoutY="332.0" prefHeight="18.0" prefWidth="179.0" text="d" />
       <Label fx:id="tfAutheurLabel" layoutX="731.0" layoutY="253.0" prefHeight="18.0" prefWidth="179.0" text="an" />
-      <Label fx:id="tfLangueLabel" layoutX="597.0" layoutY="553.0" prefHeight="18.0" prefWidth="179.0" text="l" />
+      <Label fx:id="tfLangueLabel" layoutX="564.0" layoutY="168.0" prefHeight="18.0" prefWidth="162.0" text="l" />
       <Label fx:id="tfIdClientLabel" layoutX="481.0" layoutY="392.0" prefHeight="18.0" prefWidth="179.0" text="id" />
-      <Label fx:id="tfTailleLabel" layoutX="464.0" layoutY="303.0" prefHeight="18.0" prefWidth="179.0" text="b" />
-      <Label fx:id="tfCatégorieLabel" layoutX="445.0" layoutY="56.0" prefHeight="18.0" prefWidth="179.0" text="c" />
-      <Label fx:id="tfImageLivreLabel" layoutX="445.0" layoutY="115.0" prefHeight="18.0" prefWidth="179.0" text="cov" />
-      <Label fx:id="tfCheminLabel" layoutX="462.0" layoutY="205.0" prefHeight="18.0" prefWidth="171.0" text="pat" />
+      <Label fx:id="tfTailleLabel" layoutX="597.0" layoutY="521.0" prefHeight="18.0" prefWidth="179.0" text="b" />
+      <Label fx:id="tfCatégorieLabel" layoutX="660.0" layoutY="490.0" prefHeight="18.0" prefWidth="179.0" text="c" />
+      <Label fx:id="tfImageLivreLabel" layoutX="638.0" layoutY="401.0" prefHeight="18.0" prefWidth="179.0" text="cov" />
+      <Label fx:id="tfCheminLabel" layoutX="420.0" layoutY="580.0" prefHeight="18.0" prefWidth="171.0" text="pat" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" layoutX="-16.0" layoutY="-57.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <BorderPane layoutX="-2.0" prefHeight="625.0" prefWidth="267.0">
-         <center>
-            <VBox prefHeight="598.0" prefWidth="259.0" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label prefHeight="91.0" prefWidth="234.0" text="                 Book addition" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-         </center>
-      </BorderPane>
    </children>
 </AnchorPane>
