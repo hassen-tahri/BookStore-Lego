@@ -7,6 +7,7 @@ package BookStoreLeago.gui.controllers;
 
 import BookStoreLeago.entities.Client;
 import BookStoreLeago.entities.Livre;
+import BookStoreLeago.entities.Panier;
 import BookStoreLeago.services.MyConnection;
 import BookStoreLeago.services.PanierService;
 import java.net.URL;
@@ -44,7 +45,7 @@ public class PanierClientController implements Initializable {
     @FXML
     private TableColumn<Livre, Float> price;
     @FXML
-    private TableColumn<Livre, Integer> id;
+    private TableColumn<Livre, String> id;
     @FXML
     private TableView<Livre> panierTable;
 
@@ -56,13 +57,14 @@ public class PanierClientController implements Initializable {
 
         PanierService ps = new PanierService();
 
-        Client c = new Client(2, "a", "a", "a", "a", "a", "a", true);
+        Client c = new Client(3, "a", "a", "a", "a", "a", "a", true);
         List<Livre> myList = ps.getPanier(c);
+        System.out.println(myList);
         
         title.setCellValueFactory(new PropertyValueFactory<Livre, String>("nom"));
         price.setCellValueFactory(new PropertyValueFactory<Livre, Float>("prix"));
         bookImg.setCellValueFactory(new PropertyValueFactory<Livre, String>("nom"));
-        id.setCellValueFactory(new PropertyValueFactory<Livre, Integer>("idLivre"));
+        id.setCellValueFactory(new PropertyValueFactory<Livre, String>("dateAjout"));
 
         panierTable.getItems().setAll(myList);
         panierTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -74,7 +76,7 @@ public class PanierClientController implements Initializable {
 
         PanierService ps = new PanierService();
 
-        Client c = new Client(2, "a", "a", "a", "a", "a", "a", true);
+        Client c = new Client(3, "a", "a", "a", "a", "a", "a", true);
         List<Livre> myList = ps.getPanier(c);
         
         for (int i=0;i<myList.size();i++)

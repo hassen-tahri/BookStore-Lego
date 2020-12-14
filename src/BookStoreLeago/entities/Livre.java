@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package BookStoreLeago.entities;
-
+import java.sql.Date;
 /**
  *
  * @author Hassen TAHRI
@@ -14,12 +14,14 @@ public class Livre {
     protected int idLivre;
     protected String nom, description, auteur, langue, catégorie;
     protected float prix;
+    protected String dateAjout;
 //    private CLOB couverture;
 
-    public Livre(String nom, float prix, int idLivre) {
+    public Livre(String nom, float prix, int idLivre, String date) {
         this.nom = nom;
         this.prix = prix;
         this.idLivre = idLivre;
+        this.dateAjout = date;
     }
     
 
@@ -80,6 +82,11 @@ public class Livre {
         return catégorie;
     }
 
+    public String getDateAjout() {
+        return dateAjout;
+    }
+    
+
     public void setCatégorie(String catégorie) {
         this.catégorie = catégorie;
     }
@@ -94,7 +101,7 @@ public class Livre {
 
     @Override
     public String toString() {
-        return "Livre{" + "idLivre=" + idLivre + ", nom=" + nom + ", description=" + description + ", auteur=" + auteur + ", Langue=" + langue + ", cat\u00e9gorie=" + catégorie + ", prix=" + prix + '}';
+        return "Livre{" + "idLivre=" + idLivre + ", nom=" + nom + ", description=" + description + ", auteur=" + auteur + ", Langue=" + langue + ", cat\u00e9gorie=" + catégorie + ", prix=" + prix + ", da: " + dateAjout+'}';
     }
 
 }

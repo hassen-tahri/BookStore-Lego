@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import BookStoreLeago.services.PanierService;
+        
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +26,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import ds.desktop.notify.DesktopNotify;
 
 /**
  *
@@ -98,6 +101,9 @@ public class MenuClientController extends Application{
             primaryStage.setTitle("Accueil");
             primaryStage.setScene(scene);
             primaryStage.show();
+            PanierService ps = new PanierService();
+            ps.getPanierDates(3);
+           
         } catch (IOException ex) {
             System.out.println(ex.getCause());
             System.out.println(ex.getMessage());
@@ -105,11 +111,14 @@ public class MenuClientController extends Application{
             Logger.getLogger(MenuClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+  
 
    
 
     public static void main(String[] args) {
         launch(args);
+        
     }
 
   
