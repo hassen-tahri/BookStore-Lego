@@ -6,7 +6,7 @@
 package BookStoreLeago.entities;
 
 /**
- *
+ *  
  * @author Hassen TAHRI
  */
 public class DetailStat {
@@ -14,7 +14,7 @@ public class DetailStat {
     private int nbr;
 
     public DetailStat(String mois, int nbr) {
-        this.mois = mois;
+        this.mois = mois;  
         this.nbr = nbr;
     }
 
