@@ -119,6 +119,19 @@ public class Client {
         this.etatBan = etatBan; //default false
     }
 
+    public Client(int idClient, String nom, String prenom, String pseudo, String mdp, String email, String numTel, String photo, boolean etatBan, boolean isAdmin) {
+        this.idClient = idClient;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.pseudo = pseudo;
+        this.mdp = mdp;
+        this.email = email;
+        this.numTel = numTel;
+        this.photo = photo;
+        this.etatBan = etatBan;
+        this.isAdmin = isAdmin;
+    }
+
     public Client(String nom, String prenom, String pseudo, String mdp, String email, String numTel, String photo, boolean etatBan, boolean isAdmin) {
         this.nom = nom;
         this.prenom = prenom;
@@ -154,6 +167,7 @@ public class Client {
         this.photo = photo;
         this.etatBan = etatBan;
         this.isAdmin = isAdmin;
+        followers= new ArrayList();
     }
 
     public Client() {

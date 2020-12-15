@@ -78,7 +78,7 @@ public class MenuClientController extends Application {
         loadPage("reclamClient");
     }
 
-    private void loadPage(String page) {
+    public void loadPage(String page) {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("../interfaces/" + page + ".fxml"));

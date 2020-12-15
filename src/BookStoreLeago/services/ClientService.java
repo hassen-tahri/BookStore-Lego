@@ -157,7 +157,7 @@ public class ClientService {
     public boolean supprimerClient(Client c) {
         boolean etat;
         try {
-            String requete = "DELETE FROM client where id=?";
+            String requete = "DELETE FROM client where idClient=?";
             PreparedStatement pst = cnx.prepareStatement(requete);
             pst.setInt(1, c.getIdClient());
             pst.executeUpdate();
