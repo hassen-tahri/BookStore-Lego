@@ -17,6 +17,24 @@ public class Reclamation {
     private String contenuReclamation;
     private Date dateReclamation;
     private int idClient;
+    private boolean etatReclam;
+    private String archive;
+
+    public boolean getEtatReclam() {
+        return etatReclam;
+    }
+
+    public void setEtatReclam(boolean etatReclam) {
+        this.etatReclam = etatReclam;
+    }
+
+    public String getArchive() {
+        return archive;
+    }
+
+    public void setArchive(String archive) {
+        this.archive = archive;
+    }
 
     public Reclamation(String contenuReclamation, int idClient) {
         this.contenuReclamation = contenuReclamation;
@@ -67,7 +85,7 @@ public class Reclamation {
 
     @Override
     public String toString() {
-        return "Reclamation{" + "idReclamation=" + idReclamation + ", contenuReclamation=" + contenuReclamation + ", dateReclamation=" + dateReclamation + ", idClient=" + idClient + '}';
+        return "Reclamation{" + "idReclamation=" + idReclamation + ", contenuReclamation=" + contenuReclamation + ", dateReclamation=" + dateReclamation + ", idClient=" + idClient + ", etatReclam=" + etatReclam + ", archive=" + archive + '}';
     }
 
     public void setDateReclamation(Date dateReclamation) {

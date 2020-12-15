@@ -7,25 +7,14 @@ package BookStoreLeago.gui.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
  *
  * @author Hassen TAHRI
  */
-public class ItemController implements Initializable {
-
-    @FXML
-    private Label titreitem;
-    @FXML
-    private ImageView imgitem;
-    @FXML
-    private Label prixitem;
+public class FXMLController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -34,9 +23,5 @@ public class ItemController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
-    private void click(MouseEvent event) {
-    }
     
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -8,11 +9,39 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookStoreLeago.gui.controllers.ReclamClientController">
    <padding>
       <Insets top="10.0" />
    </padding>
    <children>
-      <Text layoutX="394.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="test acceuil client" />
+      <TextArea fx:id="contenuReclam" layoutX="243.0" layoutY="85.0" prefHeight="116.0" prefWidth="529.0" />
+      <Label layoutX="29.0" layoutY="14.0" text="Reclamation" textFill="#878787">
+         <font>
+            <Font name="Cambria" size="40.0" />
+         </font>
+      </Label>
+      <Text layoutX="39.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="déposez votre reclamation ici" />
+      <Button fx:id="submitButon" layoutX="649.0" layoutY="222.0" mnemonicParsing="false" onAction="#saveReclam" prefHeight="31.0" prefWidth="123.0" text="Envoyer" />
+      <Line endX="400.0" layoutX="422.0" layoutY="280.0" startX="-400.0" />
+      <Text fx:id="msg" layoutX="243.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Label layoutX="14.0" layoutY="276.0" prefHeight="49.0" prefWidth="320.0" text="Mes reclamations" textFill="#878787">
+         <font>
+            <Font name="Cambria" size="40.0" />
+         </font>
+      </Label>
+      <ScrollPane fx:id="scroll" layoutY="325.0" prefHeight="395.0" prefWidth="874.0">
+         <content>
+            <GridPane fx:id="grid">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

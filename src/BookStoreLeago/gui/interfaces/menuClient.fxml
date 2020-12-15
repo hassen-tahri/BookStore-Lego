@@ -18,27 +18,27 @@
                <children>
                   <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="acceuilButon" layoutX="3.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#acceuilClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="Accueil">
+                        <Button fx:id="acceuilButon" layoutX="3.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#acceuilClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="Home">
                            <font>
                               <Font name="Cambria Bold Italic" size="35.0" />
                            </font>
                         </Button>
-                        <Button fx:id="livreButon" layoutX="4.0" layoutY="111.0" mnemonicParsing="false" onMouseClicked="#meslivresClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="Mes livres">
+                        <Button fx:id="livreButon" layoutX="4.0" layoutY="111.0" mnemonicParsing="false" onMouseClicked="#meslivresClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="My books">
                            <font>
                               <Font name="Cambria Bold Italic" size="35.0" />
                            </font>
                         </Button>
-                        <Button fx:id="profilButon" layoutX="4.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#profilClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="Mon profil">
+                        <Button fx:id="profilButon" layoutX="4.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#profilClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="My profile">
                            <font>
                               <Font name="Cambria Bold Italic" size="35.0" />
                            </font>
                         </Button>
-                        <Button fx:id="panierButon" layoutX="3.0" layoutY="186.0" mnemonicParsing="false" onMouseClicked="#panierClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="Mon panier">
+                        <Button fx:id="panierButon" layoutX="3.0" layoutY="186.0" mnemonicParsing="false" onMouseClicked="#panierClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="         My shopping cart">
                            <font>
                               <Font name="Cambria Bold Italic" size="35.0" />
                            </font>
                         </Button>
-                        <Button fx:id="reclamaButon" layoutX="3.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#reclamClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="Reclamations">
+                        <Button fx:id="reclamaButon" layoutX="3.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#reclamClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="Reclamation">
                            <font>
                               <Font name="Cambria Bold Italic" size="35.0" />
                            </font>
@@ -68,6 +68,21 @@
                               <Image url="@../img/reclam-icon.png" />
                            </image>
                         </ImageView>
+                        <Button fx:id="statbuton" layoutX="4.0" layoutY="408.0" mnemonicParsing="false" onMouseClicked="#statclic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="statistique">
+                           <font>
+                              <Font name="Cambria Bold Italic" size="35.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="banButon" layoutX="3.0" layoutY="482.0" mnemonicParsing="false" onMouseClicked="#banclic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="bannir client">
+                           <font>
+                              <Font name="Cambria Bold Italic" size="35.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="ajouLivre" layoutX="3.0" layoutY="557.0" mnemonicParsing="false" onMouseClicked="#ajouLivreClic" prefHeight="64.0" prefWidth="427.0" styleClass="inscri-button" stylesheets="@../styles/styleAcceuil.css" text="Sell book">
+                           <font>
+                              <Font name="Cambria Bold Italic" size="35.0" />
+                           </font>
+                        </Button>
                      </children></Pane>
                </children>
             </VBox>

@@ -5,8 +5,11 @@
  */
 package BookStoreLeago.gui.controllers;
 
+import BookStoreLeago.entities.Livre;
+import BookStoreLeago.services.LivreService;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +19,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -29,10 +34,7 @@ import javafx.stage.Stage;
  *
  * @author Hassen TAHRI
  */
-public class MenuClientController extends Application{
-    
-            
-    
+public class MenuClientController extends Application implements Initializable {
 
     @FXML
     private Button acceuilButon;
@@ -50,17 +52,21 @@ public class MenuClientController extends Application{
     private BorderPane bp;
     @FXML
     private Label pseudo;
-
+    @FXML
+    private Button statbuton;
+    @FXML
+    private Button banButon;
+    @FXML
+    private Button ajouLivre;
 
     @FXML
-    private void acceuilClic(MouseEvent event) {
-    
-       
+    private void acceuilClic(MouseEvent event) throws InterruptedException {
+      loadPage("acceuilClient");
     }
 
     @FXML
     private void meslivresClic(MouseEvent event) {
-        loadPage("meslivreClient");
+        loadPage("acceuilClient");
     }
 
     @FXML
@@ -77,18 +83,34 @@ public class MenuClientController extends Application{
     private void reclamClic(MouseEvent event) {
         loadPage("reclamClient");
     }
-    
-    private void loadPage(String page)
-    {Parent root = null ;
-        try {
-            root = FXMLLoader.load(getClass().getResource("../interfaces/"+page+".fxml"));
+
+    @FXML
+    private void statclic(MouseEvent event) {
+        loadPage("stat");
+    }
+
+    @FXML
+    private void banclic(MouseEvent event) {
+        loadPage("banir");
+    }
+     @FXML
+    private void ajouLivreClic(MouseEvent event) {
+        loadPage("FormulaireAjout");
+    }
+
+
+    void loadPage(String page) {
+        Parent root = null;
+       
+        try { System.out.println("salem");
+            root = FXMLLoader.load(getClass().getResource("../interfaces/" + page + ".fxml"));
         } catch (IOException ex) {
             Logger.getLogger(MenuClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
         bp.setCenter(root);
-        
+
     }
-    
+
     @Override
     public void start(Stage primaryStage) {
 
@@ -106,15 +128,17 @@ public class MenuClientController extends Application{
         }
     }
 
-   
-
     public static void main(String[] args) {
         launch(args);
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+         loadPage("acceuilClient");
   
+     
+    }
 
-  
+   
 
-    
 }
