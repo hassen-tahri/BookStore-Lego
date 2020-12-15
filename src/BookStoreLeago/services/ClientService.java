@@ -120,4 +120,43 @@ public class ClientService {
 //            System.out.println(ex.getMessage());        }
 //    
 //    }
+    // TODO Auto-generated method stub
+    
+    public void update(Client entity) {
+    try {
+            //(nom,prenom,pseudo,mdp,email,numTel,photo,etatBan,isAdmin)
+//String query = "update client set  'nom'='" + entity.getNom() +
+//        "' ,'prenom'='" + entity.getPrenom() + "', 'pseudo'='" + 
+//        entity.getPseudo() + "' "
+//        + "','mdp'=' " + entity.getMdp() + "' , email=' " + entity.getEmail() +
+//        ",' numTel='" + entity.getNumTel() + "'" + "',photo=" + entity.getPhoto()
+//        + "',etatBan='" + entity.isEtatBan() + "' ,isAdmin='" + false + "' where id = " 
+//        + entity.getIdClient() + ";";
+
+{String query ="UPDATE client set nom=?,prenom=?,pseudo=?,mdp=?,email=?,numTel=?,photo=?,etatBan=?,isAdmin=? WHERE idClient=?";           
+   PreparedStatement pst = cnx.prepareStatement(query);
+            pst.setString(1, entity.getNom());
+            pst.setString(2, entity.getPrenom());
+            pst.setString(3, entity.getPseudo());
+            pst.setString(4, entity.getMdp());
+            pst.setString(5, entity.getEmail());
+            pst.setString(6, entity.getNumTel());
+            pst.setString(7, entity.getPhoto());
+            pst.setBoolean(8, entity.isEtatBan());
+            pst.setBoolean(9, false);
+            pst.setInt(10, entity.getIdClient());
+        
+            pst.executeUpdate();
+            System.out.println("table updated");
+//                Statement st = cnx.createStatement();
+//                st.executeUpdate(query);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // TODO Auto-generated method stub
+    }
+
+        
 }

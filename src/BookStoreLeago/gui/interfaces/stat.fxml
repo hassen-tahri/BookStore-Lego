@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookStoreLeago.gui.controllers.StatController">
+   <children>
+      <BarChart fx:id="livresChart" layoutX="38.0" layoutY="58.0" prefHeight="445.0" prefWidth="768.0" title="Livre">
+        <xAxis>
+          <CategoryAxis fx:id="mois" label="mois" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="livres" label="livres" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Text fill="#eb613f" layoutX="231.0" layoutY="571.0" strokeType="OUTSIDE" strokeWidth="0.0" text="le nombre des livres ajoutés par mois ">
+         <font>
+            <Font name="Cambria Bold" size="22.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

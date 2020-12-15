@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane onMousePressed="#click" prefHeight="157.0" prefWidth="751.0" stylesheets="@../styles/styleAcceuil.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookStoreLeago.gui.controllers.ItemReclamController">
+   <children>
+      <VBox layoutX="63.0" layoutY="8.0" prefHeight="215.0" prefWidth="225.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="751.0">
+               <children>
+                  <Text fill="#979393" strokeType="OUTSIDE" strokeWidth="0.0" text="Reclamation          : " wrappingWidth="147.6708984375">
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" top="3.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="itemContenu" strokeType="OUTSIDE" strokeWidth="0.0" text="itemContenu" wrappingWidth="566.94970703125">
+                     <font>
+                        <Font name="Cambria" size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+               <opaqueInsets>
+                  <Insets right="5.0" />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="755.0">
+               <children>
+                  <Text fill="#979393" strokeType="OUTSIDE" strokeWidth="0.0" text="Date reclamation :" wrappingWidth="147.6708984375">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" top="3.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="datereclam" strokeType="OUTSIDE" strokeWidth="0.0" text="datereclam">
+                     <font>
+                        <Font name="Cambria" size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="755.0">
+               <children>
+                  <Text fill="#979393" strokeType="OUTSIDE" strokeWidth="0.0" text="Etat                            :" wrappingWidth="150.6708984375">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" top="3.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="etat" strokeType="OUTSIDE" strokeWidth="0.0" text="etat" wrappingWidth="248.64208984375" />
+                  <Button fx:id="butonSupp" mnemonicParsing="false" onAction="#deleteReclam" prefHeight="31.0" prefWidth="102.0" text="supprimer">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="200.0" right="15.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </children>
+   <styleClass>
+      <String fx:value="fruit-item" />
+      <String fx:value="shadow" />
+   </styleClass>
+</AnchorPane>

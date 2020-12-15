@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane onMousePressed="#click" prefHeight="180.0" prefWidth="751.0" stylesheets="@../styles/styleAcceuil.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookStoreLeago.gui.controllers.ItemClientController">
+   <styleClass>
+      <String fx:value="fruit-item" />
+      <String fx:value="shadow" />
+   </styleClass>
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutY="-1.0" prefHeight="180.0" prefWidth="751.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="180.0" prefWidth="217.0">
+               <children>
+                  <Text fill="#807d7d" strokeType="OUTSIDE" strokeWidth="0.0" text="le nom du client" wrappingWidth="141.9169921875">
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="nom" strokeType="OUTSIDE" strokeWidth="0.0" text="nom" textAlignment="CENTER" wrappingWidth="83.19775390625">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="180.0" prefWidth="185.0">
+               <children>
+                  <Text fill="#807d7d" strokeType="OUTSIDE" strokeWidth="0.0" text="le prenom du client" wrappingWidth="162.9169921875">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text fx:id="prenom" strokeType="OUTSIDE" strokeWidth="0.0" text="prenom" wrappingWidth="78.6708984375">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="180.0" prefWidth="194.0">
+               <children>
+                  <Text fill="#807d7d" strokeType="OUTSIDE" strokeWidth="0.0" text="le pseudo du client" wrappingWidth="162.9169921875">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text fx:id="pseudo" strokeType="OUTSIDE" strokeWidth="0.0" text="pseudo" wrappingWidth="109.6708984375">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="180.0" prefWidth="152.0">
+               <children>
+                  <Button fx:id="clicdeban" mnemonicParsing="false" onAction="#debanirclient" prefHeight="31.0" prefWidth="90.0" text="Activer" />
+                  <Button fx:id="clicBan" mnemonicParsing="false" onAction="#banirClient" prefHeight="31.0" prefWidth="90.0" text="Bannir" />
+               </children>
+            </VBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </children>
+</AnchorPane>
