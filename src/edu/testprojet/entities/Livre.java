@@ -124,6 +124,12 @@ public class Livre {
         this.idClient=idClient;
       
     }
+
+    public Livre(String description, float prix, String imageLivre) {
+        this.description = description;
+        this.prix = prix;
+        this.imageLivre = imageLivre;
+    }
    
      
     public Livre( String titre, String auteur, String langue, String catégorie, String description,String type,float prix,String chemin,float taille, String imageLivre, String duree , int idClient ) {

@@ -28,7 +28,7 @@ public class Test {
     
       
    LivreCRUD lv = new LivreCRUD();
-  // lv.ajouterLivre(l);
+   //lv.ajouterLivre(l);
  //lv.ajouterLivre(lp);
  //lv.ajouterLivre(la);
  //lv.ajouterLivre(lp1);
@@ -37,7 +37,7 @@ public class Test {
        // System.out.println(lv.listerLivre());
 //lv.updateLivre(l, 13)
 //lv.supprimerLivre(l);
-lv.rechercheLivre("La ferme des animaux");
+//lv.rechercheLivre("La ferme des animaux");
 
     }
 

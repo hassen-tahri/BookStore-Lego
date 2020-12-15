@@ -23,7 +23,6 @@ import java.util.List;
  */
 public class LivreCRUD {
 
-
     public void ajouterLivre(Livre l) {
         Connection cnx = null;
         PreparedStatement pst = null;
@@ -150,35 +149,125 @@ public class LivreCRUD {
     public void updateLivre(Livre l, int idLivre) {
         Connection cnx = null;
         PreparedStatement pst = null;
-        String requete = "UPDATE livre SET description=? , prix=?   WHERE idLivre=?";
+        String requete = "UPDATE livre SET description=? , prix=? , imageLivre=? WHERE idLivre=?";
         try {
             cnx = ConnexionDB.getInstance().getCnx();
             pst = cnx.prepareStatement(requete);
             pst.setString(1, l.getDescription());
-            pst.setDouble(2, l.getPrix());
-            pst.setInt(3, idLivre);
+            pst.setFloat(2, l.getPrix());
+            pst.setString(3, l.getImageLivre());
+            pst.setInt(4, l.getIdLivre());
             pst.executeUpdate();
-            System.out.println("Livre modifiée !");
-        } catch (SQLException ex) {
+            System.out.println("update ok!");
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         } finally {
-            if (pst != null) {
-                try {
-                    pst.close();
-                } catch (Exception e) {
-                    ; // ignore it
-                }
+                // we close db connection
+                if (pst != null) try {
+                        pst.close();
+                    } catch (SQLException ex) {
+                        System.err.println(ex.getMessage());
+                    }
+                if (cnx != null) try {
+                        cnx.close();
+                    } catch (SQLException ex) {
+                        System.err.println(ex.getMessage());
+                    }
             }
-            if (cnx != null) {
-                try {
-                    cnx.close();
-                } catch (Exception e) {
-                    ; // ...
-                }
-            }
-        }
     }
 
+    // update book description
+    public void updateLivreDescription(int livreId, String description) {
+            Connection cnx = null;
+            PreparedStatement pst = null;
+            String requete = "UPDATE livre SET description=? WHERE idLivre=?";
+            try {
+                cnx = ConnexionDB.getInstance().getCnx();
+                pst = cnx.prepareStatement(requete);
+                pst.setString(1, description);
+                pst.setInt(1, livreId);
+                pst.executeUpdate();
+                System.out.println("livre description updated");
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+            } finally {
+                // we close db connection
+                if (pst != null) try {
+                        pst.close();
+                    } catch (SQLException ex) {
+                        System.err.println(ex.getMessage());
+                    }
+                if (cnx != null) try {
+                        cnx.close();
+                    } catch (SQLException ex) {
+                        System.err.println(ex.getMessage());
+                    }
+            }
+            
+    }
+
+
+    // update prix
+    public void updateLivrePrix(int livreId, float prix) {
+            Connection cnx = null;
+            PreparedStatement pst = null;
+            String requete = "UPDATE livre SET prix=? WHERE idLivre=?";
+            try {
+                cnx = ConnexionDB.getInstance().getCnx();
+                pst = cnx.prepareStatement(requete);
+                pst.setFloat(1, prix);
+                pst.setInt(2, livreId);
+                pst.executeUpdate();
+                System.out.println("livre prix updated");
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+            } finally {
+                // we close db connection
+                if (pst != null) try {
+                        pst.close();
+                    } catch (SQLException ex) {
+                        System.err.println(ex.getMessage());
+                    }
+                if (cnx != null) try {
+                        cnx.close();
+                    } catch (SQLException ex) {
+                        System.err.println(ex.getMessage());
+                    }
+            }
+            
+    }
+    
+    // update livre cover
+    public void updateImageLivre(int livreId, String imageLivre) {
+            Connection cnx = null;
+            PreparedStatement pst = null;
+            String requete = "UPDATE livre SET imageLivre=? WHERE idLivre=?";
+            try {
+                cnx = ConnexionDB.getInstance().getCnx();
+                pst = cnx.prepareStatement(requete);
+                pst.setString(1, imageLivre);
+                pst.setInt(2, livreId);
+                pst.executeUpdate();
+                System.out.println("livre image updated");
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+            } finally {
+                // we close db connection
+                if (pst != null) try {
+                        pst.close();
+                    } catch (SQLException ex) {
+                       System.err.println(ex.getMessage());
+                    }
+                if (cnx != null) try {
+                        cnx.close();
+                    } catch (SQLException ex) {
+                       System.err.println(ex.getMessage());
+                    }
+            }
+            
+    }
+    
+    
     public List<Livre> getAllLivreByClientId(int id) {
         List<Livre> myList = new ArrayList<Livre>();
         Connection cnx = null;

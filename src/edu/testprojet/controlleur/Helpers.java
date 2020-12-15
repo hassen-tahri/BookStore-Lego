@@ -85,16 +85,35 @@ public class Helpers {
     }
     
     public static boolean textNumeric(TextField inputTextField, Label inputLabel, String validationText) {
-        boolean isNumeric = true;
-        String validationString = null;
+        
+        try{
+            float value=Float.parseFloat(inputTextField.getText());
+            if (value>0)
+                return true;
+            else {                      inputLabel.setText(validationText);
 
-        if (!inputTextField.getText().matches("[0-9]+")) {
-            isNumeric = false;
-            validationString = validationText;
 
+                return false;
+            }
+    
+        
+        } catch(Exception ex){
+                                inputLabel.setText(validationText);
+
+
+        return false;
         }
-        inputLabel.setText(validationString);
-        return isNumeric;
+        
+////        boolean isNumeric = true;
+////        String validationString = null;
+////
+////        if (!inputTextField.getText().matches("[0-9]+")) {
+////            isNumeric = false;
+           // validationString = validationText;
+////
+////        }
+////        inputLabel.setText(validationString);
+////        return isNumeric;
 
     }
 

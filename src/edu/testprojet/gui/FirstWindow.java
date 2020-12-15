@@ -2,7 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+ */ 
 package edu.testprojet.gui;
 
 import java.io.IOException;
@@ -23,9 +23,9 @@ public class FirstWindow extends Application {
 
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("CRUD1.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Delete.fxml"));
             Scene scene = new Scene(root);
-            primaryStage.setTitle("Ajouter votre livre!!");
+            primaryStage.setTitle("Add books!!");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {

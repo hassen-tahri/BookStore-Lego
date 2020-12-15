@@ -6,7 +6,9 @@
 package edu.testprojet.gui;
 
 import edu.testprojet.controlleur.Helpers;
+import edu.testprojet.controlleur.Helpers;
 import edu.testprojet.entities.Livre;
+import edu.testprojet.gui.LivreDetailsController;
 import edu.testprojet.service.LivreCRUD;
 import java.awt.Image;
 import java.io.File;
@@ -165,8 +167,8 @@ public class FormulaireAjoutController implements Initializable {
         boolean numericPrice = Helpers.textNumeric(tfPrix, tfPrixLabel, "must be a number and price>0");
         boolean alphabetCategory = Helpers.textAlphabet(tfCatégorie, tfCatégorieLabel, validationText);
         boolean alphabetLanguage = Helpers.textAlphabet(tfLangue, tfLangueLabel, validationText);
-        boolean alphabetImage = Helpers.textAlphabet(tfImageLivre, tfImageLivreLabel, validationText);
-        boolean alphabetPath = Helpers.textAlphabet(tfChemin, tfCheminLabel, validationText);
+//       boolean alphabetImage = Helpers.textAlphabet(tfImageLivre, tfImageLivreLabel, validationText);
+//       boolean alphabetPath = Helpers.textAlphabet(tfChemin, tfCheminLabel, validationText);
         boolean numericSize = Helpers.textNumeric(tfTaille, tfTailleLabel, "must be a number and size>0");
         
         
@@ -178,8 +180,8 @@ public class FormulaireAjoutController implements Initializable {
            numericPrice &&
            alphabetCategory &&
            alphabetLanguage &&
-           alphabetImage &&
-           alphabetPath &&
+//           alphabetImage &&
+//           alphabetPath &&
            numericSize
            ) {
         try {
