@@ -58,6 +58,8 @@ public class MenuClientController extends Application implements Initializable {
     private Button banButon;
     @FXML
     private Button ajouLivre;
+    @FXML
+    private Button reclamaButonadmin;
 
     @FXML
     private void acceuilClic(MouseEvent event) throws InterruptedException {
@@ -97,6 +99,7 @@ public class MenuClientController extends Application implements Initializable {
     private void ajouLivreClic(MouseEvent event) {
         loadPage("FormulaireAjout");
     }
+   
 
 
     void loadPage(String page) {
@@ -137,6 +140,7 @@ public class MenuClientController extends Application implements Initializable {
   
      
     }
+
 
    
 

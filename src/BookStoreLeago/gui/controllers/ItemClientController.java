@@ -8,11 +8,14 @@ package BookStoreLeago.gui.controllers;
 import BookStoreLeago.entities.Client;
 import BookStoreLeago.services.ClientService;
 import BookStoreLeago.services.MyListener;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -46,14 +49,7 @@ public class ItemClientController implements Initializable {
     }
 
     @FXML
-    private void banirClient(ActionEvent event) {
-    ClientService service = new ClientService();
-        client.setEtatBan(true);
-        service.update(client);
-        System.out.println(Boolean.toString(client.isEtatBan()));
-    }
 
-    @FXML
     private void click(MouseEvent event) {
     }
 
@@ -75,9 +71,39 @@ public class ItemClientController implements Initializable {
 
     @FXML
     private void debanirclient(ActionEvent event) {
+        System.out.println("etat client" + client.isEtatBan());
         ClientService service = new ClientService();
         client.setEtatBan(false);
         service.update(client);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menuClient.fxml"));
+            Parent root2 = loader.load();
+            MenuClientController pc2 = loader.getController();
+            clicdeban.getScene().setRoot(root2);
+            pc2.loadPage("banir");
+
+        } catch (IOException ex) {
+            ex.getMessage();
+        }
+    }
+
+    @FXML
+    private void banirClient(ActionEvent event) {
+        System.out.println("etat client" + client.isEtatBan());
+        ClientService service = new ClientService();
+        client.setEtatBan(true);
+        service.update(client);
+        System.out.println(Boolean.toString(client.isEtatBan()));
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menuClient.fxml"));
+            Parent root2 = loader.load();
+            MenuClientController pc2 = loader.getController();
+            clicdeban.getScene().setRoot(root2);
+            pc2.loadPage("banir");
+
+        } catch (IOException ex) {
+            ex.getMessage();
+        }
     }
 
 }

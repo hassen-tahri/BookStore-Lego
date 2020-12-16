@@ -83,6 +83,21 @@
                               <Font name="Cambria Bold Italic" size="35.0" />
                            </font>
                         </Button>
+                        <ImageView fitHeight="59.0" fitWidth="61.0" layoutX="30.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/stat.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="55.0" fitWidth="59.0" layoutX="32.0" layoutY="489.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/bannir.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="55.0" fitWidth="59.0" layoutX="32.0" layoutY="564.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/sell.png" />
+                           </image>
+                        </ImageView>
                      </children></Pane>
                </children>
             </VBox>

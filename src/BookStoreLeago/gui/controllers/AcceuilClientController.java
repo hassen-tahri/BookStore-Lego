@@ -60,7 +60,7 @@ public class AcceuilClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         LivreService service = new LivreService();
-        allLivre = service.listerLivre();
+        allLivre = service.getAllLivreByClientId(5);
         
         int column = 0;
         int row = 1;
