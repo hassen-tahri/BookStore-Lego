@@ -19,6 +19,7 @@ public class Livre {
     protected float prix, taille;
     protected String imageLivre;
     protected Date dateDepo;
+    protected Date dateAjout;
     
     public  Livre(String titre,String description) {
         this.titre = titre;
@@ -149,7 +150,15 @@ public class Livre {
       
     }
    
-  
+  //constructeur loua
+
+    public Livre(int idLivre, String titre, Date dateAjout) {
+        this.idLivre = idLivre;
+        this.titre = titre;
+        this.dateAjout = dateAjout;
+    }
+    
+    
 
     public int getIdLivre() {
         return idLivre;

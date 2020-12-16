@@ -23,7 +23,7 @@ public class FirstWindow extends Application {
 
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("Delete.fxml"));
+            root = FXMLLoader.load(getClass().getResource("recherche.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Add books!!");
             primaryStage.setScene(scene);

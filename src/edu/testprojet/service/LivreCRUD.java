@@ -146,17 +146,45 @@ public class LivreCRUD {
         return etat;
     }
 
-    public void updateLivre(Livre l, int idLivre) {
+    public void updateLivre(Livre livre, int idLivre) {
         Connection cnx = null;
         PreparedStatement pst = null;
         String requete = "UPDATE livre SET description=? , prix=? , imageLivre=? WHERE idLivre=?";
+        StringBuilder query = new StringBuilder();
+        query.append("UPDATE livre SET ");
+        
+        if (livre.getDescription() != null) {
+            query.append(" description=?");
+        }
+        if (livre.getPrix() != 0.0f) {
+            query.append(", prix=?");
+        }
+        if (livre.getImageLivre() != null ) {
+            query.append(", imageLivre=?");
+        }
+        
+        query.append(" WHERE idLivre=?");
+        
         try {
+            int index = 1;
             cnx = ConnexionDB.getInstance().getCnx();
-            pst = cnx.prepareStatement(requete);
-            pst.setString(1, l.getDescription());
-            pst.setFloat(2, l.getPrix());
-            pst.setString(3, l.getImageLivre());
-            pst.setInt(4, l.getIdLivre());
+            pst = cnx.prepareStatement(query.toString());
+            System.out.println(query.toString());
+            
+            if (livre.getDescription() != null) {
+                pst.setString(index++, livre.getDescription());
+            }
+            
+            if (livre.getPrix() != 0.0f) {
+                pst.setFloat(index++, livre.getPrix());
+            }
+            
+            if (livre.getImageLivre() != null ) {
+                pst.setString(index++, livre.getImageLivre());
+            }
+            
+            pst.setInt(index++, idLivre);
+            
             pst.executeUpdate();
             System.out.println("update ok!");
         } catch (Exception ex) {
@@ -175,98 +203,6 @@ public class LivreCRUD {
                     }
             }
     }
-
-    // update book description
-    public void updateLivreDescription(int livreId, String description) {
-            Connection cnx = null;
-            PreparedStatement pst = null;
-            String requete = "UPDATE livre SET description=? WHERE idLivre=?";
-            try {
-                cnx = ConnexionDB.getInstance().getCnx();
-                pst = cnx.prepareStatement(requete);
-                pst.setString(1, description);
-                pst.setInt(1, livreId);
-                pst.executeUpdate();
-                System.out.println("livre description updated");
-            } catch (SQLException ex) {
-                System.err.println(ex.getMessage());
-            } finally {
-                // we close db connection
-                if (pst != null) try {
-                        pst.close();
-                    } catch (SQLException ex) {
-                        System.err.println(ex.getMessage());
-                    }
-                if (cnx != null) try {
-                        cnx.close();
-                    } catch (SQLException ex) {
-                        System.err.println(ex.getMessage());
-                    }
-            }
-            
-    }
-
-
-    // update prix
-    public void updateLivrePrix(int livreId, float prix) {
-            Connection cnx = null;
-            PreparedStatement pst = null;
-            String requete = "UPDATE livre SET prix=? WHERE idLivre=?";
-            try {
-                cnx = ConnexionDB.getInstance().getCnx();
-                pst = cnx.prepareStatement(requete);
-                pst.setFloat(1, prix);
-                pst.setInt(2, livreId);
-                pst.executeUpdate();
-                System.out.println("livre prix updated");
-            } catch (SQLException ex) {
-                System.err.println(ex.getMessage());
-            } finally {
-                // we close db connection
-                if (pst != null) try {
-                        pst.close();
-                    } catch (SQLException ex) {
-                        System.err.println(ex.getMessage());
-                    }
-                if (cnx != null) try {
-                        cnx.close();
-                    } catch (SQLException ex) {
-                        System.err.println(ex.getMessage());
-                    }
-            }
-            
-    }
-    
-    // update livre cover
-    public void updateImageLivre(int livreId, String imageLivre) {
-            Connection cnx = null;
-            PreparedStatement pst = null;
-            String requete = "UPDATE livre SET imageLivre=? WHERE idLivre=?";
-            try {
-                cnx = ConnexionDB.getInstance().getCnx();
-                pst = cnx.prepareStatement(requete);
-                pst.setString(1, imageLivre);
-                pst.setInt(2, livreId);
-                pst.executeUpdate();
-                System.out.println("livre image updated");
-            } catch (SQLException ex) {
-                System.err.println(ex.getMessage());
-            } finally {
-                // we close db connection
-                if (pst != null) try {
-                        pst.close();
-                    } catch (SQLException ex) {
-                       System.err.println(ex.getMessage());
-                    }
-                if (cnx != null) try {
-                        cnx.close();
-                    } catch (SQLException ex) {
-                       System.err.println(ex.getMessage());
-                    }
-            }
-            
-    }
-    
     
     public List<Livre> getAllLivreByClientId(int id) {
         List<Livre> myList = new ArrayList<Livre>();
@@ -328,10 +264,12 @@ public class LivreCRUD {
         return myList;
     }
 
-    public void rechercheLivre(String titre) {
+    public List<Livre> rechercheLivre(String titre) {
         Connection cnx = null;
         Statement st = null;
         ResultSet rs = null;
+        List<Livre> bookList = new ArrayList<Livre>();
+        
         String requete = " Select * FROM livre WHERE titre='" + titre + "'";
         try {
             cnx = ConnexionDB.getInstance().getCnx();
@@ -358,9 +296,11 @@ public class LivreCRUD {
                         rs.getString("nbrPage"),
                         rs.getInt("idClient")
                 );
+                livre.setIdLivre(rs.getInt("idLivre"));
                 livre.setDuree(rs.getString("duree"));
                 livre.setIdClient(rs.getInt("IdClient"));
                 livre.setDateDepo(rs.getDate("dateDepo"));
+                bookList.add(livre);
                 System.out.println(livre.toString());
             } else {
                 System.out.println("livre non trouvé!");
@@ -390,6 +330,6 @@ public class LivreCRUD {
                 }
             }
         }
-
+        return bookList;
     }
 }
